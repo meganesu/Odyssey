@@ -6,3 +6,11 @@
 #
 
 #  column: value
+
+# NOTE: Cannot use tabs in fixtures. Indent using spaces instead.
+
+megan:
+  first_name: Megan
+  last_name: Sullivan
+  email: megan@gmail.com
+  password_digest: <%= User.digest('password') %>
