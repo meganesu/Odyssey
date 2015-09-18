@@ -5,6 +5,9 @@
 /* VARIABLES */
 
 $gray-medium-light: #eaeaea;
+$medium-green: #77bb55;
+$medium-green-hover: #6ba84c;
+$medium-green-click: #53823b;
 
 
 /* MIXINS */
@@ -38,6 +41,15 @@ textarea {
 	margin-bottom: 10px;
 }
 
+.btn {
+	border: none;
+	background-color: $medium-green;
+}
+
+.btn:hover {
+	background-color: $medium-green-hover;
+}
+
 
 /* TYPOGRAPHY */
 
@@ -47,18 +59,16 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: 3em;
-	letter-spacing: -2px;
+	letter-spacing: -1px;
 	margin-bottom: 30px;
 	text-align: center;
 }
 
 h2 {
 	font-size: 1.2em;
-	letter-spacing: -1px;
 	margin-bottom: 30px;
 	text-align: center;
 	font-weight: normal;
-	color: $gray-light;
 }
 
 p {
@@ -85,6 +95,13 @@ p {
 	text-decoration: none;
 }
 
+.navbar {
+	background-color: $medium-green;
+	.nav li a {
+		color: white;
+	}
+}
+
 
 /* FOOTER */
 
@@ -107,6 +124,26 @@ footer ul {
 footer ul li {
 	float: left;
 	margin-left: 15px;
+}
+
+
+/* JUMBOTRON */
+
+.jumbotron {
+	background: image-url('open-road.jpg') no-repeat center center;
+	background-size: cover;
+	color: white;
+	height: 500px;
+	padding-top: 150px;
+	h1 {
+		text-shadow: 3px 3px 2px black;
+	}
+	h2 {
+		text-shadow: 2px 2px 2px black;
+	}
+	.btn {
+		text-shadow: 1px 1px 2px black;
+	}
 }
 
 
