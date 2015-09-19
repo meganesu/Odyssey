@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
 	# Validate password
 	has_secure_password # enforces validations on virtual password, password_confirmation attr
-	validates :password, presence: true, length: { minimum: 6 }
+	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
 	has_many :trips
 

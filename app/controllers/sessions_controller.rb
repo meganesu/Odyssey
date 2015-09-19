@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   		log_in user # method in SessionsHelper
   		# If :remember_me checked, save cookies for user, else forget cookies
   		params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-  		redirect_to user
+  		redirect_back_or user
   	else
   		# Create an error message.
   		flash.now[:danger] = 'Invalid email/password combination'

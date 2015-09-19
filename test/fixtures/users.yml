@@ -14,3 +14,30 @@ megan:
   last_name: Sullivan
   email: megan@gmail.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+
+batman:
+  first_name: Bruce
+  last_name: Wayne
+  email: batman@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+superman:
+  first_name: Clark
+  last_name: Kent
+  email: superman@yahoo.com
+  password_digest: <%= User.digest('password') %>
+
+spiderman:
+  first_name: Peter
+  last_name: Parker
+  email: spidey@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+<% 40.times do |n| %>
+user_<%= n %>:
+  first_name: <%= "Example" %>
+  last_name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+ <% end %>
