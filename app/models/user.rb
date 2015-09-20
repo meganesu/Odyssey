@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+	has_many :trips, dependent: :destroy
+
 	# Used to remember user information even after reopening browser
 	attr_accessor :remember_token
 
@@ -19,8 +21,6 @@ class User < ActiveRecord::Base
 	# Validate password
 	has_secure_password # enforces validations on virtual password, password_confirmation attr
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-
-	has_many :trips
 
 
 	# CLASS METHODS
@@ -52,6 +52,12 @@ class User < ActiveRecord::Base
 	# Forgets a user.
 	def forget
 		update_attribute(:remember_digest, nil)
+	end
+
+	# Defines a proto-feed.
+	# See "Following Users" for full implementation. (Hartl Rails Tutorial, CH 12)
+	def feed
+		Trip.where("user_id = ?", id)
 	end
 
 end

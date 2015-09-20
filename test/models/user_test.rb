@@ -90,4 +90,14 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?('')
   end
 
+  test "associated trips should be destroyed" do
+    @user.save
+    @user.trips.create!(name: "New York to the Bay",
+                     start_loc: "New York, NY",
+                     end_loc: "San Francisco, CA")
+    assert_difference 'Trip.count', -1 do
+      @user.destroy
+    end
+  end
+
 end

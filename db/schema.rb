@@ -15,10 +15,12 @@ ActiveRecord::Schema.define(version: 20150919033816) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
     t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "locations", force: :cascade do |t|
@@ -30,13 +32,16 @@ ActiveRecord::Schema.define(version: 20150919033816) do
 
   create_table "trips", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "start_loc"
     t.string   "end_loc"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "trips", ["user_id", "created_at"], name: "index_trips_on_user_id_and_created_at"
+  add_index "trips", ["user_id"], name: "index_trips_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

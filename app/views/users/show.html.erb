@@ -6,6 +6,17 @@
 				<%= gravatar_for @user %>
 				<%= @user.first_name %> <%= @user.last_name %>
 			</h1>
+			<small>Member since <%= @user.created_at.strftime("%B %d, %Y") %></small>
 		</section>
+		<%= link_to "Create new trip", new_trip_path, class: "btn" %>
 	</aside>
+	<div class="col-md-8">
+		<% if @user.trips.any? %>
+			<h3>Trips (<%= @user.trips.count %>)</h3>
+			<ol class="trips">
+				<%= render @trips %>
+			</ol>
+			<%= will_paginate @trips %>
+		<% end %>
+	</div>
 </div>

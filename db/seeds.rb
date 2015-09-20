@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+# Create users
+
 User.create!(first_name: "Example",
 						 last_name: "User",
 						 email: "example@railstutorial.org",
@@ -23,4 +26,19 @@ User.create!(first_name: "Example",
 							 email: email,
 							 password: password,
 							 password_confirmation: password)
+end
+
+
+# Create trips for the first 6 users
+
+users = User.order(:created_at).take(6)
+50.times do |n|
+	name = "Trip #{n + 1}"
+	description = Faker::Lorem.sentence(3)
+	start_loc = Faker::Address.city
+	end_loc = Faker::Address.city
+	users.each { |user| user.trips.create!(name: name,
+																				 description: description,
+																				 start_loc: start_loc,
+																				 end_loc: end_loc) }
 end

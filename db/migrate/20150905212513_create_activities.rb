@@ -2,8 +2,9 @@ class CreateActivities < ActiveRecord::Migration
   def change
     create_table :activities do |t|
     	t.string :name
-    	t.string :description
-    	# Add date, time
+    	t.text :description
+    	t.datetime :start_datetime
+    	t.datetime :end_datetime
 
     	t.references :location
 

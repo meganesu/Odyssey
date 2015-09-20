@@ -1,0 +1,32 @@
+<% provide(:title, @trip.name) %>
+<div class="row">
+	<aside class="col-md-4">
+		<section class="row trip_info">
+			<%= link_to "<- Profile", user_path(current_user), class: "btn btn-default" %>
+			<h1><%= @trip.name %></h1>
+		</section>
+		<section class="center">
+			<%= link_to "+ Location", '#', class: "btn center" %>
+		</section>
+		<section class="loc-list">
+			<% if @trip.locations.any? %>
+				<ol class="locations">
+					<li>Locations will go here</li>
+					<li>Example Location 1</li>
+					<li>Example Location 2</li>
+					<li>etc.</li>
+				</ol>
+			<% else %>
+				<ol class="locations">
+					<li>Locations will go here</li>
+					<li>Example Location 1</li>
+					<li>Example Location 2</li>
+					<li>etc.</li>
+				</ol>
+			<% end %>
+		</section>
+	</aside>
+	<div class="col-md-8 center">
+		<h3>Map will go here</h3>
+	</div>
+</div>

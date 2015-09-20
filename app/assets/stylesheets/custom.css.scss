@@ -44,10 +44,12 @@ textarea {
 .btn {
 	border: none;
 	background-color: $medium-green;
+	color: white;
 }
 
 .btn:hover {
 	background-color: $medium-green-hover;
+	color: white;
 }
 
 
@@ -74,6 +76,14 @@ h2 {
 p {
 	font-size: 1.1em;
 	line-height: 1.7em;
+}
+
+a {
+	color: $medium-green;
+}
+
+a:hover {
+	color: $medium-green-hover;
 }
 
 
@@ -139,9 +149,13 @@ footer ul li {
 .jumbotron {
 	background: image-url('open-road.jpg') no-repeat center center;
 	background-size: cover;
-	color: white;
 	height: 500px;
-	padding-top: 150px;
+}
+
+.jumbotron .container {
+	position: relative;
+	top: 100px;
+	color: white;
 	h1 {
 		text-shadow: 3px 3px 2px black;
 	}
@@ -157,6 +171,7 @@ footer ul li {
 /* SIDEBAR */
 
 aside {
+	border-right: 1px black;
 	section.user_info {
 		margin-top: 20px;
 	}
@@ -244,6 +259,29 @@ input {
 		overflow: auto;
 		padding: 10px 0;
 		border-bottom: 1px solid $gray-lighter;
+	}
+}
+
+
+/* TRIPS */
+
+.trips {
+	list-style: none;
+	padding: 0;
+	li {
+		padding: 10px 0;
+		border-top: 1px solid $gray-lighter;
+	}
+	.trip-name {
+	  display: block;
+	}
+	.start-end-loc {
+		display: block;
+	}
+	.timestamp {
+		color: $gray-light;
+		display: block;
+		padding-top: 8px;
 	}
 }
 
