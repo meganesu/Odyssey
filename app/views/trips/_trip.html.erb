@@ -3,9 +3,9 @@
 	<span class="start-end-loc"><%= trip.start_loc %> -> <%= trip.end_loc %></span>
 	<span class="description"><%= trip.description %></span>
 	<small class="timestamp">
-		Created <%= time_ago_in_words(trip.created_at) %> ago |
+		Created <%= time_ago_in_words(trip.created_at) %> ago
 		<% if current_user?(trip.user) %>
-			<%= link_to "edit", edit_trip_path(trip) %> |
+			| <%= link_to "edit", edit_trip_path(trip) %> |
 		  <%= link_to "delete", trip, method: :delete, data: { confirm: "You sure?" } %>
 		<% end %>
 	</small>
