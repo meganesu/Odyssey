@@ -41,13 +41,16 @@ textarea {
 	margin-bottom: 10px;
 }
 
-.btn {
+.btn, .btn-xs, .btn-sm, .btn-lg, .btn-primary {
 	border: none;
 	background-color: $medium-green;
 	color: white;
+	a {
+		color: white;
+	}
 }
 
-.btn:hover {
+.btn:hover, .btn-xs:hover, .btn-sm:hover, .btn-lg:hover, .btn-primary:hover {
 	background-color: $medium-green-hover;
 	color: white;
 }
@@ -263,7 +266,7 @@ input {
 }
 
 
-/* TRIPS */
+/* TRIPS LIST (on news feed and user profile) */
 
 .trips {
 	list-style: none;
@@ -274,6 +277,9 @@ input {
 	}
 	.trip-name {
 	  display: block;
+	  .glyphicon {
+	  	padding-right: 14px;
+	  }
 	}
 	.start-end-loc {
 		display: block;
@@ -282,6 +288,16 @@ input {
 		color: $gray-light;
 		display: block;
 		padding-top: 8px;
+	}
+}
+
+
+/* TRIP SIDEBAR */
+.trip_sidebar {
+	section.trip_info {
+		.btn-sm {
+			margin-right: 10px;
+		}
 	}
 }
 

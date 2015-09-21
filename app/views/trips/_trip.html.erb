@@ -1,5 +1,5 @@
 <li id="trip-<%= trip.id %>">
-	<h4 class="trip-name"><%= link_to trip.name, trip_path(trip) %></h4>
+	<h4 class="trip-name"><span class="glyphicon glyphicon-road"></span><%= link_to trip.name, trip_path(trip) %></h4>
 	<span class="start-end-loc"><%= trip.start_loc %> -> <%= trip.end_loc %></span>
 	<span class="description"><%= trip.description %></span>
 	<small class="timestamp">
