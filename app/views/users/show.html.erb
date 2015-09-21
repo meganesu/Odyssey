@@ -8,7 +8,9 @@
 			</h1>
 			<small>Member since <%= @user.created_at.strftime("%B %d, %Y") %></small>
 		</section>
-		<%= link_to "Create new trip", new_trip_path, class: "btn" %>
+		<% if @user == current_user %>
+			<%= link_to "Create new trip", new_trip_path, class: "btn" %>
+		<% end %>
 	</aside>
 	<div class="col-md-8">
 		<% if @user.trips.any? %>
@@ -17,6 +19,8 @@
 				<%= render @trips %>
 			</ol>
 			<%= will_paginate @trips %>
+		<% else %>
+			<h4><em><%= @user.first_name %> has not created any trips yet.</em></h4>
 		<% end %>
 	</div>
 </div>

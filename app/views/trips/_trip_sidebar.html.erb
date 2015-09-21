@@ -7,27 +7,15 @@
 		<h1><%= @trip.name %></h1>
 	</section>
 	<hr>
-	<div class="add_loc center">
-		<%= link_to '#', class: "btn center" do %>
-			<span class="glyphicon glyphicon-plus"></span> Location
-		<% end %>
-	</div>
-	<hr>
+	<% if @trip.user == current_user %>
+		<div class="add_loc center">
+			<%= link_to '#', class: "btn center" do %>
+				<span class="glyphicon glyphicon-plus"></span> Location
+			<% end %>
+		</div>
+		<hr>
+	<% end %>
 	<section class="loc-list">
-		<% if @trip.locations.any? %>
-			<ol class="locations">
-				<li>Locations will go here</li>
-				<li>Example Location 1</li>
-				<li>Example Location 2</li>
-				<li>etc.</li>
-			</ol>
-		<% else %>
-			<ol class="locations">
-				<li>Locations will go here</li>
-				<li>Example Location 1</li>
-				<li>Example Location 2</li>
-				<li>etc.</li>
-			</ol>
-		<% end %>
+		<%= render 'trip_locations' %>
 	</section>
 </aside>
