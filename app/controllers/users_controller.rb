@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @trips = @user.trips.paginate(page: params[:page])
+
+    # Use for 'Create new trip' form in modal
+    @trip = current_user.trips.build if logged_in?
   end
 
   def new

@@ -1,7 +1,10 @@
 class StaticPagesController < ApplicationController
 
 	def home
-		@feed_items = current_user.feed.paginate(page: params[:page]) if logged_in?
+		if logged_in?
+			@feed_items = current_user.feed.paginate(page: params[:page])
+			@trip = current_user.trips.build  # Use for 'Create new trip' form in modal
+		end
 	end
 
 	def help

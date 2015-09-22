@@ -9,7 +9,11 @@
 			<small>Member since <%= @user.created_at.strftime("%B %d, %Y") %></small>
 		</section>
 		<% if @user == current_user %>
-			<%= link_to "Create new trip", new_trip_path, class: "btn" %>
+			<!-- Button trigger modal -->
+			<button type="button" class="btn" data-toggle="modal" data-target="#myModal">
+			  Create new trip
+			</button>
+			<%= render 'shared/new_trip_modal' %>
 		<% end %>
 	</aside>
 	<div class="col-md-8">
