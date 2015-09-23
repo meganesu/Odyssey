@@ -1,0 +1,21 @@
+<% provide(:title, 'Add Location') %>
+<h1>Add location</h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for([@trip, @location]) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %> <!-- render partial -->
+
+			<%= f.label :location %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :date_of_arrival %>
+			<%= f.text_field :arrival, class: 'form-control' %>
+
+			<%= f.label :date_of_departure %>
+			<%= f.text_field :departure, class: 'form-control' %>
+
+			<%= f.submit "Add location", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>

@@ -211,6 +211,20 @@ aside {
 }
 
 
+/* TRIP SIDEBAR */
+.trip_sidebar {
+	div.trip_info {
+		.btn-sm {
+			margin-right: 10px;
+		}
+	}
+
+	#newLocModal {
+		text-align: left;
+	}
+}
+
+
 /* FORMS */
 
 input, textarea, select, .uneditable-input {
@@ -289,16 +303,6 @@ input {
 		color: $gray-light;
 		display: block;
 		padding-top: 8px;
-	}
-}
-
-
-/* TRIP SIDEBAR */
-.trip_sidebar {
-	section.trip_info {
-		.btn-sm {
-			margin-right: 10px;
-		}
 	}
 }
 

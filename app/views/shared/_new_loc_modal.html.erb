@@ -1,30 +1,27 @@
-<div class="modal fade" id="newTripModal" tabindex="-1" role="dialog" aria-labelledby="newTripModal">
+<div class="modal fade" id="newLocModal" tabindex="-1" role="dialog" aria-labelledby="newLocModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="newTripModalLabel">Create new trip</h4>
+        <h4 class="modal-title" id="newLocModalLabel">Add location</h4>
       </div>
       <div class="modal-body">
-      	<!-- Create new trip form -->
+      	<!-- Add new location form -->
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
-						<%= form_for(@trip) do |f| %>
+						<%= form_for([@trip, @location]) do |f| %>
 							<%= render 'shared/error_messages', object: f.object %> <!-- render partial -->
 
-							<%= f.label :trip_name %>
+							<%= f.label :location %>
 							<%= f.text_field :name, class: 'form-control' %>
 
-							<%= f.label :description %>
-							<%= f.text_field :description, class: 'form-control' %>
+							<%= f.label :date_of_arrival %>
+							<%= f.datetime_select :arrival, :ampm => true, class: 'form-control' %>
 
-							<%= f.label :start_location %>
-							<%= f.text_field :start_loc, class: 'form-control' %>
+							<%= f.label :date_of_departure %>
+							<%= f.datetime_select :departure, class: 'form-control' %>
 
-							<%= f.label :end_location %>
-							<%= f.text_field :end_loc, class: 'form-control' %>
-
-							<%= f.submit "Create trip", class: "btn btn-primary" %>
+							<%= f.submit "Add location", class: "btn btn-primary" %>
 						<% end %>
 					</div>
 				</div><!-- end form -->

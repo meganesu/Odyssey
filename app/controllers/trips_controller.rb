@@ -6,6 +6,9 @@ class TripsController < ApplicationController
 	def show
 		@trip = Trip.find(params[:id])
 		@locations = @trip.locations
+
+		# Use for '+ Location' form in modal
+		@location = Location.new
 	end
 
 	def new
