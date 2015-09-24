@@ -10,18 +10,42 @@
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 						<%= form_for([@trip, @location]) do |f| %>
-							<%= render 'shared/error_messages', object: f.object %> <!-- render partial -->
+							<div class="form-group">
+								<%= render 'shared/error_messages', object: f.object %> <!-- render partial -->
 
-							<%= f.label :location %>
-							<%= f.text_field :name, class: 'form-control' %>
+								<%= f.label :location %>
+								<%= f.text_field :name, class: 'form-control' %>
 
-							<%= f.label :date_of_arrival %>
-							<%= f.datetime_select :arrival, :ampm => true, class: 'form-control' %>
+								<%= f.label :date_of_arrival %>
+								<div><!-- extra divs are for bootstrap3-datetimepicker -->
+							    <div>
+						        <div>
+						            <%= f.text_field :arrival, class: 'form-control datetimepicker', id: 'arrival-dtpicker', data: { date_format: 'YYYY-MM-DD HH:mm A' } %>
+						        </div>
+						        <script type="text/javascript">
+						            $(function () {
+						                $('#arrival-dtpicker').datetimepicker();
+						            });
+						        </script>
+						    	</div>
+								</div>
 
-							<%= f.label :date_of_departure %>
-							<%= f.datetime_select :departure, class: 'form-control' %>
+								<%= f.label :date_of_departure %>
+								<div><!-- extra divs are for bootstrap3-datetimepicker -->
+							    <div>
+						        <div>
+						            <%= f.text_field :departure, class: 'form-control datetimepicker', id: 'departure-dtpicker', data: { date_format: 'YYYY-MM-DD HH:mm A' } %>
+						        </div>
+						        <script type="text/javascript">
+						            $(function () {
+						                $('#departure-dtpicker').datetimepicker();
+						            });
+						        </script>
+						    	</div>
+								</div>
 
-							<%= f.submit "Add location", class: "btn btn-primary" %>
+								<%= f.submit "Add location", class: "btn btn-primary" %>
+							</div>
 						<% end %>
 					</div>
 				</div><!-- end form -->

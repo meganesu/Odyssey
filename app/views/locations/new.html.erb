@@ -10,10 +10,32 @@
 			<%= f.text_field :name, class: 'form-control' %>
 
 			<%= f.label :date_of_arrival %>
-			<%= f.text_field :arrival, class: 'form-control' %>
+			<div><!-- extra divs are for bootstrap3-datetimepicker -->
+		    <div>
+	        <div>
+	            <%= f.text_field :arrival, class: 'form-control datetimepicker', id: 'arrival-dtpicker', data: { date_format: 'YYYY-MM-DD HH:mm A' } %>
+	        </div>
+	        <script type="text/javascript">
+	            $(function () {
+	                $('#arrival-dtpicker').datetimepicker();
+	            });
+	        </script>
+	    	</div>
+			</div>
 
 			<%= f.label :date_of_departure %>
-			<%= f.text_field :departure, class: 'form-control' %>
+			<div><!-- extra divs are for bootstrap3-datetimepicker -->
+		    <div>
+	        <div>
+	            <%= f.text_field :departure, class: 'form-control datetimepicker', id: 'departure-dtpicker', data: { date_format: 'YYYY-MM-DD HH:mm A' } %>
+	        </div>
+	        <script type="text/javascript">
+	            $(function () {
+	                $('#departure-dtpicker').datetimepicker();
+	            });
+	        </script>
+	    	</div>
+			</div>
 
 			<%= f.submit "Add location", class: "btn btn-primary" %>
 		<% end %>

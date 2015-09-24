@@ -8,12 +8,11 @@ class LocationsController < ApplicationController
 		@trip = Trip.find(params[:trip_id])
 		@location = @trip.locations.build(loc_params)
 		if @location.save
-			flash[:success] = "Location was added to \'#{@trip.name}!\'"
+			flash[:success] = "\'#{@location.name}\' was added to \'#{@trip.name}\'!"
 			redirect_to trip_path(@trip)
 		else
 			# Handle errors in location (ex. location not found, or form field blank)
-			flash[:danger] = "There was an error. Location not saved." # TEMPORARY FIX
-			render 'new'
+			render 'new' # TEMPORARY FIX (should redisplay modal w/ error messages)
 		end
 	end
 
