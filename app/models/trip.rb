@@ -1,6 +1,6 @@
 class Trip < ActiveRecord::Base
 	belongs_to :user
-	has_many :locations
+	has_many :locations, dependent: :destroy
 
   # Sort so that newest trips are shown first
 	default_scope -> { order(created_at: :desc) }

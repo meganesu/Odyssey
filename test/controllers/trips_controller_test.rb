@@ -26,7 +26,10 @@ class TripsControllerTest < ActionController::TestCase
 
   test "should redirect create when not logged in" do
   	assert_no_difference 'Trip.count' do
-  		post :create, micropost: { content: "Lorem ipsum" }
+  		post :create, trip: { name: "New Trip",
+                            description: "This is a new trip",
+                            start_loc: "New York",
+                            end_loc: "Alabama" }
   	end
   	assert_redirected_to login_url
   end

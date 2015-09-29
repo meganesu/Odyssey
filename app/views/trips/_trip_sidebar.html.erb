@@ -18,10 +18,10 @@
 		<% end %>
 	</div>
 	<div class="loc-list">
-		<ol class="locations">
-			<% @trip.locations.each do |location| %>
-				<li><%= location.name %></li>
-			<% end %>
-		</ol>
+		<% if @trip.locations.any? %>
+			<ol class="locations">
+					<%= render @trip.locations %>
+			</ol>
+		<% end %>
 	</div>
 </aside>

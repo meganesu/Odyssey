@@ -245,6 +245,14 @@ aside {
 			min-height: 42px;
 		}
 	}
+
+	.loc-list {
+		height: 440px;
+		overflow-y: scroll;
+		.glyphicon {
+			padding-right: 8px;
+		}
+	}
 }
 
 

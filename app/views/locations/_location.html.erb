@@ -1,0 +1,11 @@
+<li id="location-<%= location.id %>">
+	<h4 class="location-name"><%= location.name %></h4>
+	<% if current_user?(location.trip.user) %>
+		<div class="arrival"><span class="glyphicon glyphicon-log-in" aria-label="Arrival"></span><%= location.arrival.strftime("%a, %b %-d, %Y @ %l:%M%p") %></div>
+		<div class="departure"><span class="glyphicon glyphicon-log-out" aria-label="Departure"></span><%= location.departure.strftime("%a, %b %-d, %Y @ %l:%M%p") %></div>
+		<small>
+			<%= link_to "edit", edit_location_path(location) %> |
+	  	<%= link_to "delete", location, method: :delete, data: { confirm: "You sure?" } %>
+		</small>
+	<% end %>
+</li>

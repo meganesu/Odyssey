@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
 	belongs_to :trip
-	has_many :activities
+	has_many :activities, dependent: :destroy
 
 	validates :trip_id, presence: true
 	validates :name, presence: true, length: { maximum: 60 }

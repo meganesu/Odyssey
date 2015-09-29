@@ -4,8 +4,15 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+
+new_york:
+  name: "New York, NY"
+  arrival: <%= DateTime.civil_from_format(:local, 2015, 9, 12, 14, 0, 0) %>
+  departure: <%= DateTime.civil_from_format(:local, 2015, 9, 12, 15, 0, 0) %>
+  trip: ridgely
+
+jersey:
+  name: "New Jersey"
+  arrival: <%= DateTime.civil_from_format(:local, 2015, 9, 12, 17, 0, 0) %>
+  departure: <%= DateTime.civil_from_format(:local, 2015, 9, 12, 18, 0, 0) %>
+  trip: ridgely
