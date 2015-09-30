@@ -5,8 +5,6 @@ class CreateLocations < ActiveRecord::Migration
     	t.datetime :arrival
     	t.datetime :departure
 
-    	# Add map coordinates?
-
     	t.references :trip, index: true, foreign_key: true
 
       t.timestamps null: false

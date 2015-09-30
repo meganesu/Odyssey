@@ -7,6 +7,13 @@ class TripsController < ApplicationController
 		@trip = Trip.find(params[:id])
 		@locations = @trip.locations
 
+		# Use to build location markers for map
+		@hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+			marker.lat location.latitude
+			marker.lng location.longitude
+			# marker.infoWindow location.name
+		end
+
 		# Use for '+ Location' form in modal
 		@location = Location.new
 	end

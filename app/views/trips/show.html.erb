@@ -2,34 +2,32 @@
 <div class="row">
 	<%= render 'trip_sidebar' %>
 	<div class="col-md-9 center">
-		<!-- TEST MAP! -->
+		<!-- Trip map -->
 		<div>
 		  <div id="trip_map" style='width: 850px; height: 600px;'></div>
 		</div>
 		<script type="text/javascript">
-		handler = Gmaps.build('Google');
-		handler.buildMap(
-			{
-				provider: {
-					zoomControl: true,
-					mapTypeControl: false,
-					scaleControl: true,
-					streetViewControl: false,
-					rotateControl: false,
+			handler = Gmaps.build('Google');
+			handler.buildMap(
+				{
+					provider: {
+						zoomControl: true,
+						mapTypeControl: false,
+						scaleControl: true,
+						streetViewControl: false,
+						rotateControl: false,
 
-					zoom: 12,
-					center: {lat: -28.643387, lng: 153.612224} //temporary,
-														//will replace with geographic center of trip.locations
-				},
-				internal: {
-					id: 'trip_map'
-				}
-			}, 
-			function() {
-				markers = handler.addMarkers(<%= raw @hash.to_json %>); 
-				handler.bounds.extendWith(markers);
-				handler.fitMapToBounds();
-			});
+						zoom: 2
+					},
+					internal: {
+						id: 'trip_map'
+					}
+				}, 
+				function() {
+					markers = handler.addMarkers(<%= raw @hash.to_json %>); 
+					handler.bounds.extendWith(markers);
+					handler.fitMapToBounds();
+				});
 		</script>
 	</div>
 </div>

@@ -42,6 +42,7 @@ gem 'bootstrap-will_paginate'
 # Google maps
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'geocoder'
 
 # DateTimePicker
 gem 'momentjs-rails', '>= 2.9.0'
